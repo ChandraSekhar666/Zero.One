@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--- meta tags -->
+    <title>Zero Technology Inc.</title>
+    <meta name="title" content="Zero Technology Inc. - ZERO.ONE">
+    <meta name="description" content="The future of hypercars: ZERO.ONE.">
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700;900&family=Oswald:wght@700;900&display=swap"
+        rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-red: #d43638;
+            --text-strong: #f5f6f7;
+            --text-light: #e8e6e7;
+            --text-muted: #999999;
+            --bg-dark: #0b0303;
+            --bg-deep: #000000;
+            --font-main: 'Montserrat', sans-serif;
+            --font-hero: 'Oswald', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--text-light);
+            background: radial-gradient(1200px 480px at 50% 52%, rgba(212, 54, 56, 0.08), rgba(11, 3, 3, 0.95) 60%) no-repeat, var(--bg-dark);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header-section {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 28px 56px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 11px;
+            z-index: 100;
+        }
+
+        .header-left {
+            color: #AAA;
+            line-height: 1.4;
+        }
+
+        .header-left b {
+            color: var(--text-strong);
+            font-weight: 700;
+        }
+
+        .header-center-logo img {
+            width: 72px;
+            height: auto;
+            display: block;
+            opacity: .9;
+        }
+
+        .header-right {
+            color: #AAA;
+            text-align: right;
+            line-height: 1.4;
+        }
+
+        .header-right b {
+            color: var(--text-strong);
+            font-weight: 700;
+        }
+
+        /* Hero */
+        .home-section {
+            position: relative;
+            min-height: 86vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 120px;
+        }
+
+
+        /* subtle red glow behind the car to increase separation/brightness perception */
+        .home-section::before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 54%;
+            transform: translate(-50%, -50%);
+            width: 1200px;
+            max-width: 95vw;
+            height: 380px;
+            background: black;
+            filter: blur(18px);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .hero-text-image-container {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10%;
+        }
+
+
+        .hero-title {
+            font-family: var(--font-hero);
+            font-weight: 700;
+            font-size: 33vw;
+            line-height: 0.8;
+            text-transform: uppercase;
+            letter-spacing: -0.03em;
+            color: rgba(227, 179, 179, 0.639);
+            position: absolute;
+            top: 36%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 3;
+            pointer-events: none;
+            opacity: 0.3;
+        }
+
+        .car-silhouette {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+            margin-top: 24px;
+        }
+
+        .car-silhouette img {
+            width: 100%;
+            max-width: 1180px;
+            height: auto;
+            filter: saturate(1.18) contrast(1.25) brightness(1.08);
+            /* Make dark areas fade into page background */
+            mix-blend-mode: screen;
+            opacity: .98;
+            /* Soft feather to merge into background */
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 18%, rgba(0, 0, 0, 1) 82%, rgba(0, 0, 0, 0) 100%);
+            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 18%, rgba(0, 0, 0, 1) 82%, rgba(0, 0, 0, 0) 100%);
+            -webkit-mask-size: 100% 100%;
+            mask-size: 100% 100%;
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+            border-radius: 0;
+        }
+
+        .stats-bar {
+            width: 100%;
+            max-width: 660px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 24px;
+            position: absolute;
+            top: 112px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 6;
+        }
+
+        .stat-item {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            align-items: center;
+            column-gap: 10px;
+        }
+
+        .stat-icon {
+            color: var(--primary-red);
+            font-size: 33px;
+            filter: drop-shadow(0 0 4px rgba(212, 54, 56, 0.55));
+        }
+
+        .stat-text-top {
+            font-size: 22px;
+            color: var(--primary-red);
+            font-weight: 700;
+            letter-spacing: .3px;
+            text-shadow: 0 0 8px rgba(0, 0, 0, .65);
+        }
+
+        .stat-text-bottom {
+            font-size: 11px;
+            color: #AAA;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            text-shadow: 0 0 6px rgba(0, 0, 0, .55);
+        }
+
+        /* Lower content */
+        .home-section-bottom {
+            width: 100%;
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 0 56px 96px 56px;
+            position: relative;
+            z-index: 4;
+            display: grid;
+            row-gap: 20px;
+        }
+
+        .content-header {
+            color: #AAA;
+            font-size: 13px;
+            letter-spacing: 2.2px;
+            font-weight: 700;
+        }
+
+        .content-title {
+            font-family: var(--font-main);
+            font-size: clamp(44px, 8vw, 64px);
+            font-weight: 900;
+            color: var(--text-strong);
+            letter-spacing: 1px;
+        }
+
+        .content-body {
+            max-width: 520px;
+            font-size: 14px;
+            line-height: 1.7;
+            color: #cfcfcf;
+        }
+
+        .content-body b {
+            color: var(--primary-red);
+            font-weight: 800;
+        }
+
+        .content-notes {
+            margin-top: 28px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            font-size: 11px;
+            color: #AAA;
+            letter-spacing: .6px;
+        }
+
+        .note {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .note i {
+            color: var(--text-strong);
+            opacity: .6;
+        }
+
+        .download {
+            color: var(--primary-red);
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        /* Footer */
+        .newsletter-section {
+            width: 100%;
+            text-align: center;
+            padding: 22px 0 28px 0;
+            font-size: 11px;
+            color: #8b8b8b;
+            letter-spacing: 1px;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .newsletter-section b {
+            color: var(--text-strong);
+        }
+
+        /* Spline section */
+        .spline-section {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .spline-section iframe {
+            width: 120vw;
+            height: 100vh;
+            border: none;
+            display: block;
+            overflow: hidden;
+
+        }
+
+        .side-logo {
+            position: absolute;
+            top: 50%;
+            left: 2vw;
+            width: 350px;
+            z-index: 10;
+            pointer-events: none;
+            transform: rotate(-90deg);
+        }
+
+        @media (max-width: 900px) {
+            .stats-bar {
+                position: absolute;
+                top: 96px;
+                left: 50%;
+                transform: translateX(-50%);
+                gap: 20px;
+                padding: 0 16px;
+                justify-content: center;
+            }
+
+            .header-section {
+                padding: 20px 24px;
+            }
+
+            .home-section {
+                padding-top: 100px;
+            }
+
+            .home-section-bottom {
+                padding: 0 24px 72px 24px;
+            }
+
+            .content-notes {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+    <!---//////////////// Main-body-start -->
+    <!---//////////////// Header-section -->
+    <!--- Header-section -->
+    <header class="header-section" id="header">
+        <div class="header-left">
+            <b>GRAPHO.io</b><br>
+            <span>lorem ipsum is simply dummy text</span>
+        </div>
+        <div class="header-center-logo">
+            <img src="assets/icons/zerotechinc-logo-white.png" alt="ZeroTech Inc.">
+        </div>
+        <div class="header-right">
+            <b>A0 - Zerotech Inc.</b><br>
+            <span>lorem ipsum is simply dummy text</span>
+        </div>
+    </header>
+
+
+    <!---//////////////// Home-section -->
+    <section class="home-section" id="home">
+        <!-- Background giant text -->
+        <div class="hero-text-image-container">
+            <h1 class="hero-title">ZERO1</h1>
+
+            <!-- Car image -->
+            <div class="car-silhouette">
+                <img src="assets/images/home-bg.jpg" alt="ZERO.ONE">
+            </div>
+        </div>
+        <!-- Stats -->
+        <div class="stats-bar">
+            <div class="stat-item">
+                <i class="stat-icon fas fa-bolt"></i>
+                <div>
+                    <div class="stat-text-top">24000hp</div>
+                    <div class="stat-text-bottom">HORSEPOWER</div>
+                </div>
+            </div>
+            <div class="stat-item">
+                <i class="stat-icon fas fa-gauge-high"></i>
+                <div>
+                    <div class="stat-text-top">1.6Sec</div>
+                    <div class="stat-text-bottom">0 - 60</div>
+                </div>
+            </div>
+            <div class="stat-item">
+                <i class="stat-icon fas fa-rocket"></i>
+                <div>
+                    <div class="stat-text-top">493km/h</div>
+                    <div class="stat-text-bottom">TOP SPEED</div>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+
+
+    <!---//////////////// Other-section -->
+    <section class="home-section-bottom">
+        <div class="content-header">LOREM IPSUM</div>
+        <div class="content-title">ZERO.ONE</div>
+        <p class="content-body">
+            <b>LOREM IPSUM</b> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+            industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+            scrambled it to make a type specimen book.
+        </p>
+
+        <div class="content-notes">
+            <div class="note">
+                <i class="fa-regular fa-image"></i>
+                <span>Lorem ipsum is simply dummy text of the printing industry</span>
+            </div>
+            <div class="note download">
+                <i class="fa-solid fa-box-archive"></i>
+                <span>Download press kit</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="spline-section">
+
+        <img class="side-logo" src="assets/icons/zerotechinc-logo-white.svg" alt="Logo">
+        <!-- Spline 3D model embed -->
+        <iframe src='https://my.spline.design/distortingtypography-f3B4rGed1EA5cUVt5rMxKtz3/' frameborder='0'></iframe>
+
+
+
+    </section>
+
+    <!---//////////////// Newsletter-section -->
+    <section class="newsletter-section">
+        &copy; 2025 <b>ZERO TECHNOLOGY INC.</b> All rights reserved
+    </section>
+
+
+    <!---//////////////// Js-script -->
+
+</body>
+
+</html>

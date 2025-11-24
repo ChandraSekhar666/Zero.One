@@ -1,0 +1,43 @@
+Zero Technology Inc. License v1.0
+===============================
+
+Copyright (c) 2025 Zero Technology Inc. (Project: Zero Technology Website)
+
+Preamble
+--------
+This license grants permissions and sets conditions for use of the software produced by Zero Technology Inc. It is intended for projects where the Author retains attribution and control while allowing others to use, study, and build upon the work under defined conditions.
+
+Terms
+-----
+
+1. Definitions
+   - "Software" means the source code, binaries, assets, documentation, and other materials provided by the Author.
+   - "You" or "Licensee" means any individual or entity exercising rights under this License.
+
+2. Grant of Rights
+   - The Author grants You a worldwide, non-exclusive, royalty-free, revocable license to:
+     a) Use, reproduce, run, and display the Software;
+     b) Create derivative works and distribute them, subject to clauses below.
+
+3. Conditions
+   - Attribution: Any distribution of the Software or derivative works must include:
+     * A copy of this Zero Technology Inc. Personal License (ZR_LICENSE.txt)
+     * A visible acknowledgment: "Contains components from Zero Technology Website by Zero Technology Inc."
+   - No Trademark Use: This License does not grant permission to use the Author's name, trade names, trademarks, or service marks without explicit written permission.
+   - Preservation of Commission Key: If the Software contains a Commission Code key or equivalent project signature, any transfer of ownership or public distribution must preserve and include the signature block (CommissionCode/secure_store/key.bin) or provide an output of `core_signature.verify()`.
+
+4. Limitations
+   - No Sublicensing beyond these terms: You may not relicense the original Software under a more restrictive license that negates the attribution requirements above.
+   - Export & Legal Compliance: You are responsible to comply with any export/import laws and sanctions.
+
+5. No Warranty
+   - THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND. THE AUTHOR DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
+
+6. Liability
+   - IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES ARISING FROM THIS SOFTWARE.
+
+7. Revocation
+   - The Author reserves the right to revoke this license for specific users or distributions if the Conditions are materially breached and remediation is not achieved within 30 days of written notice.
+
+8. Governing Law
+   - This License shall be governed by the laws of the Author's jurisdiction (specify your country/state here). Any disputes will be settled under those laws.

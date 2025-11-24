@@ -6,16 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!--- meta tags -->
     <title>Zero Technology Inc.</title>
     <meta name="title" content="Zero Technology Inc. - ZERO.ONE">
     <meta name="description" content="The future of hypercars: ZERO.ONE.">
 
-    <!-- Google Fonts -->
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700;900&family=Oswald:wght@700;900&display=swap"
         rel="stylesheet">
-    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <style>
@@ -39,6 +36,7 @@
         body {
             font-family: var(--font-main);
             color: var(--text-light);
+            /* Updated background gradient with darker bottom to blend with Spline */
             background: radial-gradient(1200px 480px at 50% 52%, rgba(212, 54, 56, 0.08), rgba(11, 3, 3, 0.95) 60%) no-repeat, var(--bg-dark);
             min-height: 100vh;
             overflow-x: hidden;
@@ -302,16 +300,35 @@
             margin: 0;
             padding: 0;
             overflow: hidden;
+            /* Optional: Add a transition for smooth replacement */
+            transition: background-color 0.5s ease;
         }
 
+        /* Style for the actual iframe when it is loaded */
         .spline-section iframe {
             width: 120vw;
             height: 100vh;
             border: none;
             display: block;
             overflow: hidden;
-
+            /* Ensure the iframe uses hardware acceleration */
+            transform: translateZ(0);
         }
+
+        /* Style for the JavaScript placeholder */
+        #spline-placeholder {
+            width: 120vw;
+            height: 100vh;
+            /* Inherit the dark background */
+            background-color: var(--bg-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 14px;
+            border: none;
+        }
+
 
         .side-logo {
             position: absolute;
@@ -321,6 +338,401 @@
             z-index: 10;
             pointer-events: none;
             transform: rotate(-90deg);
+        }
+
+        .section2 {
+            width: 100%;
+            min-height: 100vh;
+            position: relative;
+            padding: 80px 6%;
+        }
+
+        .section2-background-img {
+            position: absolute;
+            margin: 2%;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        .section2-background-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(60%);
+        }
+
+        .text-area .top-line {
+            font-size: 14px;
+            opacity: 0.7;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .text-area h1 {
+            font-size: 34px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .changing {
+            padding: 4px 16px;
+            border: 2px solid white;
+            border-radius: 40px;
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .arrow {
+            background: #DD1F24;
+            padding: 8px 14px;
+            border-radius: 50%;
+            font-size: 20px;
+            display: inline-block;
+            transform: rotate(45deg);
+        }
+
+        .news-card {
+            position: absolute;
+            text-align: justify;
+            left: 5%;
+            bottom: 10%;
+            width: 310px;
+            padding: 22px;
+            background: rgba(255, 255, 255, 0.09);
+            backdrop-filter: blur(3px);
+            border-radius: 18px;
+        }
+
+        .news-top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .news-badge {
+            font-size: 12px;
+            opacity: 0.7;
+            margin-bottom: 8px;
+        }
+
+        .view-btn {
+            background: #DD1F24;
+            color: white;
+            border: none;
+            padding: 6px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            margin: 0;
+        }
+
+
+        .news-text {
+            font-size: 14px;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        /* ------------------ TIRE POPUP ------------------ */
+        .tire-card {
+            position: absolute;
+            left: 40%;
+            bottom: 18%;
+            width: 170px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(14px);
+            padding: 16px;
+            border-radius: 16px;
+            background-blend-mode: overlay;
+        }
+
+        .tire-card img {
+            width: 100px;
+            height: 50px;
+            border-radius: 10px;
+            mix-blend-mode: multiply;
+            opacity: 0.9;
+        }
+
+        .tire-card p {
+            font-size: 12px;
+            margin: 0;
+        }
+
+        .mobile-card {
+            position: absolute;
+            right: 6%;
+            top: 10%;
+            width: 290px;
+            background: #0D0E10;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .mobile-img {
+            width: 100%;
+            height: 170px;
+            object-fit: cover;
+        }
+
+        .mobile-title {
+            display: flex;
+            justify-content: space-between;
+            padding: 14px;
+            background: #DD1F24;
+            font-size: 18px;
+        }
+
+        .small-arrow {
+            font-size: 20px;
+        }
+
+        .dots {
+            text-align: center;
+            margin: 12px 0;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            background: #999;
+            border-radius: 50%;
+            display: inline-block;
+            margin: 0 3px;
+        }
+
+        .dot.active {
+            background: white;
+        }
+
+        .deep-title {
+            font-size: 17px;
+            padding: 0 16px;
+            margin-top: 6px;
+        }
+
+        .deep-text {
+            font-size: 14px;
+            opacity: 0.8;
+            padding: 0 16px;
+            margin: 8px 0 20px;
+        }
+
+        .barcode {
+            width: 100%;
+            height: 40px;
+            background: repeating-linear-gradient(90deg,
+                    #fff 0px,
+                    #fff 3px,
+                    transparent 3px,
+                    transparent 6px);
+        }
+
+        .know-more {
+            text-align: center;
+            padding: 10px;
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        .section-engine {
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .video-wrapper {
+            width: 90%;
+            height: 90%;
+        }
+
+        .engine-power-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0;
+        }
+
+        .section-engine {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 5vh 5vw;
+            /* creates 5%-ish margin from edges */
+            box-sizing: border-box;
+        }
+
+        /* Overlay sits above the video */
+        .overlay {
+            position: absolute;
+            inset: 0;
+            /* fill the section */
+            pointer-events: none;
+            /* allow clicks to pass through to video if needed */
+        }
+
+        /* Big ENGINE text (right side) */
+        .overlay-engine {
+            position: absolute;
+            right: 6%;
+            top: 12%;
+            margin: 0;
+            padding: 0;
+            font-family: "Oswald", "Helvetica Neue", Arial, sans-serif;
+            font-weight: 700;
+            line-height: 0.85;
+            font-size: 10vw;
+            color: rgba(255, 255, 255, 0.92);
+            -webkit-font-smoothing: antialiased;
+            text-transform: uppercase;
+            display: block;
+            transform: translateY(-2%);
+            -webkit-text-stroke: 1px rgba(0, 0, 0, 0.18);
+            text-shadow: 0 1px 0 rgba(0, 0, 0, 0.12);
+            white-space: nowrap;
+        }
+
+        .overlay-meet {
+            position: absolute;
+            left: 5.5%;
+            bottom: 10%;
+            display: flex;
+            align-items: baseline;
+            gap: 0.6rem;
+            pointer-events: none;
+        }
+
+        .meet {
+            font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+            font-weight: 800;
+            font-style: normal;
+            text-transform: uppercase;
+            font-size: 6.6vw;
+            color: #ffffff;
+            letter-spacing: -0.02em;
+            display: inline-block;
+            line-height: 0.9;
+            padding-right: 0.25rem;
+            -webkit-font-smoothing: antialiased;
+        }
+
+
+        .speed {
+            font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+            font-weight: 300;
+            font-style: italic;
+            font-size: 5.2vw;
+            color: #ffffff;
+            opacity: 0.98;
+            letter-spacing: 0.01em;
+            display: inline-block;
+            line-height: 0.9;
+        }
+
+        .vertical-guides {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 0, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to right, rgba(0, 0, 0, 0.02) 0, rgba(0, 0, 0, 0.02) 1px, transparent 1px);
+            background-size: 33.333% 100%, 33.333% 100%;
+            background-position: 0 0, 33.333% 0;
+            pointer-events: none;
+            mix-blend-mode: multiply;
+            opacity: 0.65;
+        }
+
+        .overlay-power {
+            position: absolute;
+            left: 5.5%;
+            bottom: calc(7% + 7vw);
+            pointer-events: none;
+            font-style: italic;
+            font-weight: 600;
+        }
+
+        .power {
+            font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+            font-weight: 500;
+            font-size: 1.1vw;
+            letter-spacing: 0.12em;
+            color: #ffffff;
+            opacity: 0.85;
+            text-transform: uppercase;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        @media (max-width: 1200px) {
+            .overlay-engine {
+                font-size: 26vw;
+                right: 4%;
+                top: 8%;
+                -webkit-text-stroke: 0.8px;
+            }
+
+            .meet {
+                font-size: 9.6vw;
+            }
+
+            .speed {
+                font-size: 7.4vw;
+            }
+        }
+
+        @media (max-width: 700px) {
+            .overlay-engine {
+                font-size: 32vw;
+                right: 2%;
+                top: 6%;
+            }
+
+            .meet {
+                font-size: 12.6vw;
+            }
+
+            .speed {
+                font-size: 10.2vw;
+                display: block;
+                margin-top: -0.15em;
+            }
+
+            .overlay-meet {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.15rem;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .section2 {
+                padding: 40px 4%;
+            }
+
+            .mobile-card {
+                position: static;
+                margin: 40px auto;
+            }
+
+            .news-card,
+            .tire-card {
+                display: none;
+            }
+
+            .text-area h1 {
+                font-size: 38px;
+            }
         }
 
         @media (max-width: 900px) {
@@ -357,9 +769,6 @@
 
 <body>
 
-    <!---//////////////// Main-body-start -->
-    <!---//////////////// Header-section -->
-    <!--- Header-section -->
     <header class="header-section" id="header">
         <div class="header-left">
             <b>GRAPHO.io</b><br>
@@ -375,18 +784,14 @@
     </header>
 
 
-    <!---//////////////// Home-section -->
     <section class="home-section" id="home">
-        <!-- Background giant text -->
         <div class="hero-text-image-container">
             <h1 class="hero-title">ZERO1</h1>
 
-            <!-- Car image -->
             <div class="car-silhouette">
                 <img src="assets/images/home-bg.jpg" alt="ZERO.ONE">
             </div>
         </div>
-        <!-- Stats -->
         <div class="stats-bar">
             <div class="stat-item">
                 <i class="stat-icon fas fa-bolt"></i>
@@ -415,7 +820,93 @@
     </section>
 
 
-    <!---//////////////// Other-section -->
+    <section class="section2">
+        <div class="section2-background-img">
+            <img src="assets/images/Section2-background.avif" alt="background">
+        </div>
+
+        <div class="text-area">
+            <p class="top-line">THE FUTURE IS NOW</p>
+            <h1>
+                Discover how we are <br>
+                <span class="changing">changing</span>
+                <span class="arrow">➜</span><br>
+                the world of automobiles
+            </h1>
+        </div>
+
+        <!-- News Card -->
+        <div class="news-card">
+            <div class="news-top-row">
+                <span class="news-badge">NEWS ARTICLE</span>
+                <button class="view-btn">View ↗</button>
+            </div>
+
+
+            <p class="news-text">
+                Zero Technology completes Phase 0: Digital Twin with CFX-AD v.001,
+                validated through 1M virtual miles and achieving 55% efficiency.
+            </p>
+        </div>
+
+        <!-- Tire Popup -->
+        <div class="tire-card">
+            <img src="assets/images/crankshaft.jpg" alt="crankshaft">
+            <p>Phase 1 begins: Titanium crankshaft machining in Houston (Q4 2025)</p>
+        </div>
+
+        <!-- Right Mobile Card -->
+        <div class="mobile-card">
+            <img src="assets/images/engine-dyno-testing.jpg" class="mobile-img">
+
+            <div class="mobile-title">
+                <span>January 2026 Hot-Fire</span>
+                <span class="small-arrow">⟳</span>
+            </div>
+
+            <div class="dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+
+            <h3 class="deep-title">3,000 HP Dyno Test</h3>
+            <p class="deep-text">
+                Zero Technology prepares for full hot-fire testing of the prototype
+                CFX-AD engine in January 2026 as Phase 1 transitions from simulation to reality.
+            </p>
+
+            <div class="barcode"></div>
+            <p class="know-more">Scan to Know More</p>
+        </div>
+
+
+    </section>
+
+    <section class="section-engine">
+        <div class="video-wrapper">
+            <video id="engineVideo" src="assets/video/13190356_3840_2160_24fps.mp4" class="engine-power-video" muted
+                playsinline loop>
+            </video>
+        </div>
+        <div class="overlay">
+            <h1 class="overlay-engine">ENGINE</h1>
+            <div class="overlay-power">
+                <span class="power">@2400 HP</span>
+            </div>
+
+            <div class="overlay-meet">
+                <span class="meet">MEET</span>
+                <span class="speed">SPEED</span>
+            </div>
+
+            <div class="vertical-guides" aria-hidden="true"></div>
+        </div>
+    </section>
+
+
+
     <section class="home-section-bottom">
         <div class="content-header">LOREM IPSUM</div>
         <div class="content-title">ZERO.ONE</div>
@@ -437,23 +928,67 @@
         </div>
     </section>
 
-    <section class="spline-section">
 
-        <img class="side-logo" src="assets/icons/zerotechinc-logo-white.svg" alt="Logo">
-        <!-- Spline 3D model embed -->
-        <iframe src='https://my.spline.design/distortingtypography-f3B4rGed1EA5cUVt5rMxKtz3/' frameborder='0'></iframe>
-
-
-
-    </section>
-
-    <!---//////////////// Newsletter-section -->
     <section class="newsletter-section">
         &copy; 2025 <b>ZERO TECHNOLOGY INC.</b> All rights reserved
     </section>
 
 
-    <!---//////////////// Js-script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const placeholder = document.getElementById('spline-placeholder');
+            let iframeAdded = false;
+            let scrollTimeout;
+
+            function loadSpline() {
+                if (iframeAdded) return;
+
+                const splineUrl = placeholder.getAttribute('data-src');
+                const iframe = document.createElement('iframe');
+
+                iframe.src = splineUrl;
+                iframe.frameBorder = "0";
+                iframe.style.width = "120vw";
+                iframe.style.height = "100vh";
+                iframe.style.border = "none";
+                iframe.style.display = "block";
+                iframe.style.overflow = "hidden";
+                iframe.style.transform = "translateZ(0)";
+
+                placeholder.parentNode.replaceChild(iframe, placeholder);
+                iframeAdded = true;
+            }
+
+            window.addEventListener('scroll', () => {
+                clearTimeout(scrollTimeout);
+
+                const rect = placeholder.getBoundingClientRect();
+                const visible = rect.top < window.innerHeight && rect.bottom > 0;
+
+                if (visible) {
+                    scrollTimeout = setTimeout(loadSpline, 400);
+                }
+            });
+        });
+
+        const video = document.getElementById("engineVideo");
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    video.play();
+                } else {
+                    video.pause();
+                }
+            });
+        }, {
+            threshold: 0.3
+        });
+
+        observer.observe(document.querySelector(".section-engine"));
+
+
+    </script>
 
 </body>
 
